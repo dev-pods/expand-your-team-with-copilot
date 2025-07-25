@@ -1,103 +1,103 @@
-## Step 2: Collaborate with Copilot
+## Passo 2: Colaborar com o Copilot
 
-When Copilot creates a pull request in which you'll find:
+Quando o Copilot cria um pull request no qual você encontrará:
 
-- **Pull Request Description** - Copilot will keep a concise overview of its goal and implementation.
-- **Timeline** - Copilot will provide high-level notes about starting working sessions and commits.
-- **Session History** - A detailed log of the steps Copilot took to implement the issue.
+- **Pull Request Description** - O Copilot manterá uma visão geral concisa de seu objetivo e implementação.
+- **Timeline** - O Copilot fornecerá notas de alto nível sobre iniciar working sessions e commits.
+- **Session History** - Um log detalhado dos steps que o Copilot seguiu para implementar a issue.
 
-You can provide feedback to Copilot the same way you would a colleague. These actions trigger Copilot to begin another working session.
+Você pode fornecer feedback ao Copilot da mesma forma que faria com um colega. Essas ações fazem o Copilot iniciar outra working session.
 
-- **Comments** - Add a comment on the pull request conversation.
-- **Reviews** - Combine multiple comments in a pull request review.
-- **@ mentions** - You can tag Copilot in a comment just like a coworker.
+- **Comments** - Adicione um comment na conversação do pull request.
+- **Reviews** - Combine múltiplos comments em um pull request review.
+- **@ mentions** - Você pode marcar o Copilot em um comment assim como um colega de trabalho.
 
-#### Important Considerations
+#### Considerações Importantes
 
-- Copilot's work is done on a branch with the convention `copilot/*` and does not have access to other branches.
-- Copilot cannot trigger Actions workflows.
-  - Workflows triggered on pull requests require human approval before running.
-- Rulesets and similar protections are still enforced.
+- O trabalho do Copilot é feito em um branch com a convenção `copilot/*` e não tem acesso a outros branches.
+- O Copilot não pode disparar workflows do Actions.
+  - Workflows disparados em pull requests requerem aprovação humana antes de executar.
+- Rulesets e proteções similares ainda são aplicados.
 
 > [!TIP]
-> All work created by Copilot is committed with the assignee as a co-contributor (keeping your contribution graph safe). 💕
+> Todo trabalho criado pelo Copilot é committed com o assignee como co-contributor (mantendo seu contribution graph seguro). 💕
 
-### ⌨️ Activity: View Copilot's progress
+### ⌨️ Atividade: Ver o progresso do Copilot
 
-1. In the issue, click on the reference link to the pull request. Alternately, use the **Pull Requests** tab in the top navigation.
+1. Na issue, clique no link de referência para o pull request. Alternativamente, use a aba **Pull Requests** na navegação superior.
 
-1. Watch in real-time as Copilot updates the pull request description. It will be progresses through 3 phases:
+1. Assista em tempo real conforme o Copilot atualiza a descrição do pull request. Ele progredirá através de 3 fases:
 
    <details>
-      <summary>1. When starting, Copilot provides an initial copy of the issue. <b>[show image]</b></summary>
+      <summary>1. Ao iniciar, o Copilot fornece uma cópia inicial da issue. <b>[mostrar imagem]</b></summary>
       <img width="500" alt="image" src="https://github.com/user-attachments/assets/967dbea0-01c2-4531-9bce-5a055d3dad25" />
    </details>
 
    <details>
-      <summary>2. After planning, Copilot provides a set of action items. <b>[show image]</b></summary>
+      <summary>2. Após o planejamento, o Copilot fornece um conjunto de action items. <b>[mostrar imagem]</b></summary>
       <img width="500" alt="image" src="https://github.com/user-attachments/assets/acadb796-6545-4b6d-b2b3-9a00ea1744a2" />
    </details>
 
    <details>
-      <summary>3. After finishing, Copilot provides a summary. <b>[show image]</b></summary>
+      <summary>3. Após terminar, o Copilot fornece um summary. <b>[mostrar imagem]</b></summary>
       <img width="500" alt="image" src="https://github.com/user-attachments/assets/61204574-0262-4c2f-af4b-09b284f31b90" />
    </details>
 
-1. Scroll down slightly to view the timeline and high-level notes provided by Copilot. Click the **View session** button.
+1. Role ligeiramente para baixo para ver a timeline e notas de alto nível fornecidas pelo Copilot. Clique no botão **View session**.
 
    <img width="500" src="https://github.com/user-attachments/assets/088260e6-bae0-40af-8186-864eb3e7b8a2" />
 
-1. The new page shows a journal of Copilot's work. The left navigation is a list of each working session.
+1. A nova página mostra um journal do trabalho do Copilot. A navegação esquerda é uma lista de cada working session.
 
    <img width="500" src="https://github.com/user-attachments/assets/2c80fa91-1123-4813-a801-42af368240b9" />
 
-1. If necessary, wait for Copilot to finish working on the changes.
+1. Se necessário, aguarde o Copilot terminar de trabalhar nas mudanças.
 
 > [!TIP]
-> You can use the **edited** dropdown to view the pull request description change history.
+> Você pode usar o dropdown **edited** para ver o histórico de mudanças da descrição do pull request.
 >
 > <details>
-> <summary>Show image</summary>
+> <summary>Mostrar imagem</summary>
 > <img width="500" alt="image" src="https://github.com/user-attachments/assets/cb88a67c-e42f-463c-88cd-b23a391b28a0" />
 > </details>
 
-### ⌨️ Activity: Provide Copilot feedback
+### ⌨️ Atividade: Fornecer feedback ao Copilot
 
-1. Back in the pull request, click the **Add your review** button.
+1. De volta no pull request, clique no botão **Add your review**.
 
    <img width="350" src="https://github.com/user-attachments/assets/d71847b9-573b-451e-9c85-946a6988e3f0" />
 
-1. Find the new entry created by Copilot. Hover over a line to show the plus sign. **Click** to open the add comment dialog box.
+1. Encontre a nova entrada criada pelo Copilot. Passe o mouse sobre uma linha para mostrar o sinal de mais. **Clique** para abrir a dialog box de adicionar comment.
 
    <img width="350" src="https://github.com/user-attachments/assets/fd1375a4-fbdf-453e-a457-7bcb1fbbea23" />
 
-1. Reading the description, we think it should be more interesting to match the Manga spirit. Let's ask Copilot to fix that. Enter the following text and click **Start a review**.
+1. Lendo a descrição, achamos que deveria ser mais interessante para combinar com o espírito do Manga. Vamos pedir ao Copilot para corrigir isso. Digite o seguinte texto e clique em **Start a review**.
 
    ```md
-   Please change this description to be inspired by Japanese Manga.
-   It needs more personality to attract students.
+   Por favor, mude esta descrição para ser inspirada pelo Manga japonês.
+   Precisa de mais personalidade para atrair estudantes.
    ```
 
    <img width="350" src="https://github.com/user-attachments/assets/f37da948-2062-4f46-ba75-bcff538800e4" />
 
-1. At the top of the changes list, click the **Finish your review** button and select **Submit Review**.
+1. No topo da lista de mudanças, clique no botão **Finish your review** e selecione **Submit Review**.
 
-1. After a moment, Copilot will add a new session entry and indicate progress on the timeline.
+1. Após um momento, o Copilot adicionará uma nova entrada de session e indicará progresso na timeline.
 
-1. Wait for Copilot to finish working on the change and then click the **View changes** button to see the updated activity description.
+1. Aguarde o Copilot terminar de trabalhar na mudança e então clique no botão **View changes** para ver a descrição da atividade atualizada.
 
    <img width="350" src="https://github.com/user-attachments/assets/a5ccd7b5-4df8-406a-b3a8-80328ba210e5" />
 
-1. Activate the pull requests by clicking the **Ready to Review** button then click the **Merge** button.
+1. Ative os pull requests clicando no botão **Ready to Review** e então clique no botão **Merge**.
 
-1. With our review submitted and the pull request merged, Mona should be checking our work. Give her a moment to respond with the next lesson.
+1. Com nosso review submetido e o pull request merged, a Mona deve estar verificando nosso trabalho. Dê a ela um momento para responder com a próxima lição.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Tendo problemas? 🤷</summary><br/>
 
-If you don't get feedback, here are some things to check:
+Se você não receber feedback, aqui estão algumas coisas para verificar:
 
-- Make sure your commit the changes in the `src/static/` directory to the branch `accelerate-with-copilot` and pushed/synchronized to GitHub.
-- If Mona found a mistake, simply make a correction and push your changes again. Mona will check your work as many times as needed.
+- Certifique-se de que commitou as mudanças no diretório `src/static/` para o branch `accelerate-with-copilot` e fez push/sincronizou com o GitHub.
+- Se a Mona encontrou um erro, simplesmente faça uma correção e faça push de suas mudanças novamente. A Mona verificará seu trabalho quantas vezes for necessário.
 
 </details>

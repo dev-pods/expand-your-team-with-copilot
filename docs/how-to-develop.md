@@ -1,14 +1,14 @@
-# Development Guide
+# Guia de Desenvolvimento
 
-## Initial Setup
+## Configuração Inicial
 
-This project is best developed using GitHub Codespaces, which provides a consistent development environment with all the necessary tools pre-configured.
+Este projeto é melhor desenvolvido usando GitHub Codespaces, que fornece um ambiente de desenvolvimento consistente com todas as ferramentas necessárias pré-configuradas.
 
-### Setting up your development environment
+### Configurando seu ambiente de desenvolvimento
 
-1. Open the repository in a codespace
-2. Wait for the container to finish building and installing dependencies
-3. Install Python dependencies by running:
+1. Abra o repository em um codespace
+2. Aguarde o container terminar de construir e instalar as dependencies
+3. Instale as dependencies do Python executando:
 
    ```bash
    python -m pip install -r requirements.txt
@@ -16,53 +16,53 @@ This project is best developed using GitHub Codespaces, which provides a consist
 
 ### Dependencies
 
-The project requires the following Python packages:
+O projeto requer os seguintes packages do Python:
 
-- FastAPI - Modern web framework for building APIs
-- Uvicorn - ASGI server implementation for running the FastAPI application
+- FastAPI - Modern web framework para construir APIs
+- Uvicorn - ASGI server implementation para executar a aplicação FastAPI
 
-These dependencies will be installed when you run `pip install -r requirements.txt`
+Essas dependencies serão instaladas quando você executar `pip install -r requirements.txt`
 
 ## Debugging
 
-### Running the website locally
+### Executando o website localmente
 
-1. From VS Code's Run and Debug view (Ctrl+Shift+D), select "Launch Mergington WebApp" from the launch configuration dropdown
-2. Press F5 or click the green play button to start debugging
-3. The website will be available at `http://localhost:8000`
-4. The API documentation will be available at `http://localhost:8000/docs`
+1. Na view Run and Debug do VS Code (Ctrl+Shift+D), selecione "Launch Mergington WebApp" no dropdown de configuração de launch
+2. Pressione F5 ou clique no botão verde play para iniciar o debugging
+3. O website estará disponível em `http://localhost:8000`
+4. A documentação da API estará disponível em `http://localhost:8000/docs`
 
-### Debugging tips
+### Dicas de debugging
 
-- FastAPI's auto-reload feature will automatically restart the server when you make code changes
-- Use the interactive API documentation at `/docs` to test your endpoints
+- O feature auto-reload do FastAPI irá automaticamente reiniciar o server quando você fizer mudanças no código
+- Use a documentação interativa da API em `/docs` para testar seus endpoints
 
-## Getting Started
+## Começando
 
-1. Install the dependencies:
+1. Instale as dependencies:
 
    ```bash
    pip install fastapi uvicorn
    ```
 
-2. Run the application:
+2. Execute a aplicação:
 
    ```bash
    python app.py
    ```
 
-3. Open your browser and go to:
-   - API documentation: http://localhost:8000/docs
-   - Alternative documentation: http://localhost:8000/redoc
+3. Abra seu browser e vá para:
+   - Documentação da API: http://localhost:8000/docs
+   - Documentação alternativa: http://localhost:8000/redoc
 
-## Usage
+## Uso
 
 ### API Endpoints
 
-| Method | Endpoint                                                          | Description                                                         |
+| Method | Endpoint                                                          | Descrição                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| GET    | `/activities`                                                     | Obter todas as activities com seus detalhes e contagem atual de participantes |
+| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Inscrever-se em uma activity                                             |
 
 > [!IMPORTANT]
-> All data is stored in memory, which means data will be reset when the server restarts.
+> Todos os dados são armazenados na memória, o que significa que os dados serão resetados quando o server reiniciar.

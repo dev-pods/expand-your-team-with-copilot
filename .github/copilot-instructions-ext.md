@@ -1,47 +1,47 @@
-### School Overview
+### Visão Geral da Escola
 
-- The school name is "Mergington High School"
-- The school is a public high school in Mergington, Florida.
-- The school motto is "Branch out and grow".
-- It serves grades 9 through 12 and typically has 100 to 150 students per grade.
+- O nome da escola é "Mergington High School"
+- A escola é uma high school pública em Mergington, Florida.
+- O lema da escola é "Branch out and grow".
+- Atende da 9ª à 12ª série e normalmente tem de 100 a 150 estudantes por série.
 
-- The school year starts in August and ends in May.
-- There are 3 trimesters per year.
-- There is a 4th summer cycle, but it is optional.
+- O ano letivo começa em agosto e termina em maio.
+- Há 3 trimestres por ano.
+- Há um 4º ciclo de verão, mas é opcional.
 
-Below is a list of common roles and tasks they might want help with.
-If a user specifies their role, you can use this information to provide more targeted suggestions or offer ways to help them.
+Abaixo está uma lista de funções comuns e tarefas com as quais eles podem querer ajuda.
+Se um usuário especificar sua função, você pode usar essa informação para fornecer sugestões mais direcionadas ou oferecer maneiras de ajudá-los.
 
-## Development Environment
+## Ambiente de Desenvolvimento
 
-For detailed setup and development instructions, please refer to our [Development Guide](../docs/how-to-develop.md).
+Para instruções detalhadas de setup e desenvolvimento, por favor consulte nosso [Guia de Desenvolvimento](../docs/how-to-develop.md).
 
-### User Interaction
+### Interação com o Usuário
 
-Consider the following when communicating with the staff.
+Considere o seguinte ao se comunicar com o staff.
 
-- The staff is not technical. Explain in simple terms as much as possible and avoid software jargon.
-- Any new code must be easy to maintain and understand, without significant coding experience.
+- O staff não é técnico. Explique em termos simples o máximo possível e evite jargão de software.
+- Qualquer código novo deve ser fácil de manter e entender, sem experiência significativa em programação.
 
-## Program architecture
+## Arquitetura do Programa
 
-- The website users are the students and teachers. Make sure the user experience is simple.
-- Do not make additional apps or services.
-- Do not make command line tools.
-- Do not create a long single file application. Always use an easy-to-understand directory structure.
-- Only use HTML, CSS, Javascript, and Python. No other languages.
+- Os usuários do website são os estudantes e professores. Certifique-se de que a experiência do usuário seja simples.
+- Não faça apps ou services adicionais.
+- Não faça ferramentas de command line.
+- Não crie uma aplicação de arquivo único longo. Sempre use uma estrutura de diretório fácil de entender.
+- Use apenas HTML, CSS, Javascript e Python. Nenhuma outra linguagem.
 
-### Documentation
+### Documentação
 
-- Always update the README file to explain how to use the program. Assume the user will quickly forget so good documentation is important.
-- Once the readme gets too long, start organizing it into a docs directory.
+- Sempre atualize o arquivo README para explicar como usar o programa. Assuma que o usuário esquecerá rapidamente, então uma boa documentação é importante.
+- Uma vez que o readme ficar muito longo, comece a organizá-lo em um diretório docs.
 
-### Quality considerations
+### Considerações de Qualidade
 
-- If the tasks involves grades, scores, or other numerical data, isolate those functions and make sure they are correct with unit tests.
+- Se as tarefas envolvem notas, pontuações ou outros dados numéricos, isole essas functions e certifique-se de que estejam corretas com unit tests.
 
-### Security considerations
+### Considerações de Segurança
 
-- Personal information might be processed so privacy and security are important.
-- Do not provide examples that encourage the user to hardcode secrets, passwords, or other sensitive information.
-- If credentials or other sensitive information is required, add features to the program to prompt for it, store it locally, and logout. For example a login dialog box.
+- Informações pessoais podem ser processadas, então privacidade e segurança são importantes.
+- Não forneça exemplos que encorajem o usuário a hardcode secrets, passwords ou outras informações sensíveis.
+- Se credentials ou outras informações sensíveis forem necessárias, adicione features ao programa para solicitá-las, armazená-las localmente e fazer logout. Por exemplo, uma dialog box de login.

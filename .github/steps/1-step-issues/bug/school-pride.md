@@ -1,8 +1,8 @@
-# Missing School Pride
+# Falta de Orgulho da Escola
 
-The website is blue, but our school colors are white and lime green. Please fix this.
+O website está azul, mas as cores da nossa escola são branco e verde limão. Por favor, corrija isso.
 
-Also, why are none of our mascots on the page?
-Please use the various options from https://octodex.github.com/
+Além disso, por que nenhum dos nossos mascotes está na página?
+Por favor, use as várias opções de https://octodex.github.com/
 
-Oh one more idea, I think it would look cool if the background had various Git-style branch lines slowly animating! That's easy, right?
+Ah, mais uma ideia, acho que ficaria legal se o background tivesse várias linhas de branch estilo Git animando lentamente! Isso é fácil, certo?

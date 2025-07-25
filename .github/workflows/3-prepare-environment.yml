@@ -1,4 +1,4 @@
-name: Step 3
+name: Passo 3
 
 on:
   pull_request:
@@ -17,11 +17,11 @@ env:
 
 jobs:
   find_exercise:
-    name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.4.0
+    name: Encontrar Issue do exercício
+    uses: dev-pods/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.1.1
 
   check_step_work:
-    name: Check step work
+    name: Verificar trabalho do passo
     runs-on: ubuntu-latest
     needs: [find_exercise]
     env:
@@ -31,27 +31,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.6.0
+          ref: v0.1.1
 
-      - name: Update comment - checking work
+      - name: Atualizar comentário - verificando trabalho
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file exercise-toolkit/markdown-templates/step-feedback/checking-work.md \
             --edit-last
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # START: Check practical exercise
+      # INÍCIO: Verificar exercício prático
 
-      - name: Check file changes
+      - name: Verificar mudanças nos arquivos
         id: changed-files
         uses: tj-actions/changed-files@v46.0.5
 
-      - name: Check copilot-instructions.md
+      - name: Verificar copilot-instructions.md
         id: check-instructions
         uses: actions/github-script@v6
         continue-on-error: true
@@ -61,16 +61,16 @@ jobs:
             let message = '';
 
             if (!changedFiles.includes('.github/copilot-instructions.md')) {
-              message = 'You need to provide instructions in .github/copilot-instructions.md file';
+              message = 'Você precisa fornecer instruções no arquivo .github/copilot-instructions.md';
               core.setOutput('STEP_MESSAGE', message);
-              core.setFailed('The .github/copilot-instructions.md file was not modified');
+              core.setFailed('O arquivo .github/copilot-instructions.md não foi modificado');
               return;
             }
 
-            message = 'Provided instructions in `.github/copilot-instructions.md`';
+            message = 'Instruções fornecidas em `.github/copilot-instructions.md`';
             core.setOutput('STEP_MESSAGE', message);
 
-      - name: Check copilot-setup-steps.yml
+      - name: Verificar copilot-setup-steps.yml
         id: check-setup-steps
         uses: actions/github-script@v6
         continue-on-error: true
@@ -80,18 +80,18 @@ jobs:
             let message = '';
 
             if (!changedFiles.includes('.github/workflows/copilot-setup-steps.yml')) {
-              message = 'You need to setup copilot-setup-steps.yml workflow';
+              message = 'Você precisa configurar o workflow copilot-setup-steps.yml';
               core.setOutput('STEP_MESSAGE', message);
-              core.setFailed('The `copilot-setup-steps.yml` file was not modified');
+              core.setFailed('O arquivo `copilot-setup-steps.yml` não foi modificado');
               return;
             }
 
-            message = 'You setup the copilot-setup-steps.yml workflow';
+            message = 'Você configurou o workflow copilot-setup-steps.yml';
             core.setOutput('STEP_MESSAGE', message);
 
-      - name: Build message - step results
+      - name: Construir mensagem - resultados do passo
         id: build-message-step-results
-        uses: skills/action-text-variables@v2
+        uses: dev-pods/action-text-variables@v0.0.1
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
           template-vars: |
@@ -103,7 +103,7 @@ jobs:
               - description: ${{ steps.check-setup-steps.outputs.STEP_MESSAGE }}
                 passed: ${{ steps.check-setup-steps.outcome == 'success' }}
 
-      - name: Create comment - step results
+      - name: Criar comentário - resultados do passo
         run: |
           gh issue comment "$ISSUE_URL" \
             --body "$COMMENT_BODY" \
@@ -112,21 +112,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMENT_BODY: ${{ steps.build-message-step-results.outputs.updated-text }}
 
-      # END: Check practical exercise
+      # FIM: Verificar exercício prático
 
-      - name: Fail job if not all checks passed
+      - name: Falhar job se nem todas as verificações passaram
         if: contains(steps.*.outcome, 'failure')
         run: exit 1
 
-      - name: Build message - step finished
+      - name: Construir mensagem - passo finalizado
         id: build-message-step-finish
-        uses: skills/action-text-variables@v2
+        uses: dev-pods/action-text-variables@v0.0.1
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
           template-vars: |
             next_step_number: 4
 
-      - name: Add comment - step finished
+      - name: Adicionar comentário - passo finalizado
         run: |
           gh issue comment "$ISSUE_URL" \
             --body "$ISSUE_BODY"
@@ -135,7 +135,7 @@ jobs:
           ISSUE_BODY: ${{ steps.build-message-step-finish.outputs.updated-text }}
 
   post_next_step_content:
-    name: Post next step content
+    name: Postar conteúdo do próximo passo
     needs: [find_exercise, check_step_work]
     runs-on: ubuntu-latest
     env:
@@ -145,28 +145,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.6.0
+          ref: v0.1.1
 
-      - name: Create comment - add step content
+      - name: Criar comentário - adicionar conteúdo do passo
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file "$STEP_4_FILE"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create comment - watching for progress
+      - name: Criar comentário - observando progresso
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Disable current workflow and enable next one
+      - name: Desabilitar workflow atual e habilitar o próximo
         run: |
           gh workflow disable "Step 3" || true
           gh workflow enable "Step 4" || true

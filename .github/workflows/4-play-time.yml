@@ -1,4 +1,4 @@
-name: Step 4
+name: Passo 4
 
 on:
   pull_request:
@@ -17,11 +17,11 @@ env:
 
 jobs:
   find_exercise:
-    name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.6.0
+    name: Encontrar Issue do exercício
+    uses: dev-pods/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.1.1
 
   check_step_work:
-    name: Check step work
+    name: Verificar trabalho do passo
     runs-on: ubuntu-latest
     needs: [find_exercise]
     env:
@@ -31,20 +31,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.6.0
+          ref: v0.1.1
 
-      # START: Check practical exercise
+      # INÍCIO: Verificar exercício prático
 
-      # Nothing to check. Merging the pull request is enough.
+      # Nada para verificar. Fazer merge do pull request é suficiente.
 
-      # END: Check practical exercise
+      # FIM: Verificar exercício prático
 
-      - name: Create comment - step finished - final review next
+      - name: Criar comentário - passo finalizado - revisão final próxima
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file exercise-toolkit/markdown-templates/step-feedback/lesson-review.md
@@ -52,7 +52,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   post_review_content:
-    name: Post review content
+    name: Postar conteúdo da revisão
     needs: [find_exercise, check_step_work]
     runs-on: ubuntu-latest
     env:
@@ -62,14 +62,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.6.0
+          ref: v0.1.1
 
-      - name: Create comment - add step content
+      - name: Criar comentário - adicionar conteúdo do passo
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file "$REVIEW_FILE"
@@ -77,15 +77,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   finish_exercise:
-    name: Finish Exercise
+    name: Finalizar Exercício
     needs: [find_exercise, post_review_content]
-    uses: skills/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.6.0
+    uses: dev-pods/exercise-toolkit/.github/workflows/finish-exercise.yml@v0.1.1
     with:
       issue-url: ${{ needs.find_exercise.outputs.issue-url }}
-      exercise-title: "Expand your team with GitHub Copilot"
+      exercise-title: "Expanda sua equipe com o GitHub Copilot"
 
   disable_workflow:
-    name: Disable this workflow
+    name: Desabilitar este workflow
     needs: [find_exercise, post_review_content]
     runs-on: ubuntu-latest
 
@@ -93,7 +93,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Disable current workflow
+      - name: Desabilitar workflow atual
         run: gh workflow disable "${{github.workflow}}" || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

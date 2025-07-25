@@ -1,54 +1,54 @@
-# Expand your team with Copilot coding agent
+# Expanda sua equipe com o Copilot coding agent
 
-_Let Copilot coding agent tackle your issues directly on GitHub. No coding environment needed._
+_Deixe o Copilot coding agent resolver suas issues diretamente no GitHub. Não é necessário ambiente de desenvolvimento._
 
-## Welcome
+## Bem-vindo
 
-- **Who is this for**: Developers at any experience level looking to accelerate their code workflow.
-- **What you'll learn**: How to assign Copilot an issue, review Copilot's work, provide feedback to Copilot, and work on multiple issues in parallel.
-- **What you'll build**: You will provide GitHub Copilot access to the repository for the Mergington High School Extracurricular Activities website, enabling your fellow teachers to make changes without needing to code directly.
-- **Prerequisites**:
+- **Para quem é**: Desenvolvedores de qualquer nível de experiência que buscam acelerar seu workflow de código.
+- **O que você aprenderá**: Como atribuir uma issue ao Copilot, revisar o trabalho do Copilot, fornecer feedback ao Copilot e trabalhar em múltiplas issues em paralelo.
+- **O que você construirá**: Você fornecerá acesso ao GitHub Copilot ao repository do site de Atividades Extracurriculares da Mergington High School, permitindo que seus colegas professores façam mudanças sem precisar programar diretamente.
+- **Pré-requisitos**:
 
   - Skills exercise: [Introduction to GitHub](https://github.com/skills/introduction-to-github)
   - Skills exercise: [Getting Started with GitHub Copilot](https://github.com/skills/getting-started-with-github-copilot)
 
-- **How long**: This exercise takes less than one hour to complete.
+- **Duração**: Este exercício leva menos de uma hora para completar.
 
-In this exercise, you will:
+Neste exercício, você irá:
 
-1. How to enable Copilot coding agent on your repository.
-1. Assign an issue and understand your agent's progress.
-1. Collaborate with your agent on code changes.
-1. Customize and optimize your agent's workspace.
-1. Preparing our issues for better results.
+1. Como habilitar o Copilot coding agent no seu repository.
+1. Atribuir uma issue e entender o progresso do seu agent.
+1. Colaborar com seu agent nas mudanças de código.
+1. Customizar e otimizar o workspace do seu agent.
+1. Preparar nossas issues para melhores resultados.
 
 > [!IMPORTANT]
-> Copilot coding agent is in **public preview** and free with limitations until June 1st, 2025.  
-> Please expect minor differences in this exercise as features change.
+> O Copilot coding agent está em **public preview** e gratuito com limitações até 1º de junho de 2025.  
+> Por favor, espere pequenas diferenças neste exercício conforme as features mudam.
 
-### How to start this exercise
+### Como iniciar este exercício
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+Simplesmente copie o exercício para sua conta, então dê ao seu Octocat favorito (Mona) **cerca de 20 segundos** para preparar a primeira lição, depois **atualize a página**.
 
 [![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=expand-your-team-with-copilot&owner=%40me&name=skills-expand-your-team-with-copilot&description=Exercise:+Expand+your+team+with+GitHub+Copilot+coding+agent&visibility=public)
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Tendo problemas? 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+Ao copiar o exercício, recomendamos as seguintes configurações:
 
-- For owner, choose your personal account or an organization to host the repository.
+- Para owner, escolha sua conta pessoal ou uma organização para hospedar o repository.
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- Recomendamos criar um repository público, já que repositories privados usarão minutos do Actions.
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+Se o exercício não estiver pronto em 20 segundos, por favor verifique a aba [Actions](../../actions).
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- Verifique se há um job rodando. Às vezes simplesmente demora um pouco mais.
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- Se a página mostrar um job que falhou, por favor abra uma issue. Legal, você encontrou um bug! 🐛
 
 </details>
 
 ---
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2025 GitHub &bull; [Código de Conduta](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)

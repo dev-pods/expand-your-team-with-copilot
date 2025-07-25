@@ -1,4 +1,4 @@
-name: Step 1
+name: Passo 1
 
 on:
   issues:
@@ -14,11 +14,11 @@ env:
 
 jobs:
   find_exercise:
-    name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.4.0
+    name: Encontrar Issue do exercício
+    uses: dev-pods/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.1.1
 
   check_step_work:
-    name: Check step work
+    name: Verificar trabalho do passo
     runs-on: ubuntu-latest
     needs: [find_exercise]
     env:
@@ -28,28 +28,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.6.0
+          ref: v0.1.1
 
-      # START: Check practical exercise
+      # INÍCIO: Verificar exercício prático
 
-      # Nothing to verify.
+      # Nada para verificar.
 
-      # END: Check practical exercise
+      # FIM: Verificar exercício prático
 
-      - name: Build message - step finished
+      - name: Construir mensagem - passo finalizado
         id: build-message-step-finish
-        uses: skills/action-text-variables@v2
+        uses: dev-pods/action-text-variables@v0.0.1
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
           template-vars: |
             next_step_number: 2
 
-      - name: Update comment - step finished
+      - name: Atualizar comentário - passo finalizado
         run: |
           gh issue comment "$ISSUE_URL" \
             --body "$ISSUE_BODY"
@@ -58,7 +58,7 @@ jobs:
           ISSUE_BODY: ${{ steps.build-message-step-finish.outputs.updated-text }}
 
   create_issues:
-    name: Create issues
+    name: Criar issues
     needs: [check_step_work]
     runs-on: ubuntu-latest
 
@@ -66,8 +66,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # TODO: replace with https://github.com/marketplace/actions/create-an-issue
-      - name: Create issues
+      # TODO: substituir por https://github.com/marketplace/actions/create-an-issue
+      - name: Criar issues
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -78,24 +78,24 @@ jobs:
             const repo = context.repo.repo;
 
             async function createIssuesFromMarkdownFiles(dir, label) {
-              // Get list of markdown files
+              // Obter lista de arquivos markdown
               const files = fs.readdirSync(dir);
-              console.log(`Creating ${files.length} issues with '${label}' label from '${dir}' folder.`);
+              console.log(`Criando ${files.length} issues com label '${label}' da pasta '${dir}'.`);
 
-              // Create the issue
+              // Criar a issue
               for (const file of files) {
 
-                // Load the file content
+                // Carregar o conteúdo do arquivo
                 const fullPath = path.join(dir, file);
                 const fileContent = fs.readFileSync(fullPath, 'utf8');
 
-                // Split the file content into title, body, and comments
+                // Dividir o conteúdo do arquivo em título, corpo e comentários
                 const title = fileContent.split('\n')[0].replace('#', '').trim();
                 const body = fileContent.split('\n').slice(1).join('\n').split('----- COMMENTS -----')[0].trim();
                 let comments = fileContent.split('----- COMMENTS -----').slice(1).join('\n').trim().split('\n')
                 comments = comments.filter(comment => comment.trim() !== '');
 
-                // Log the content
+                // Log do conteúdo
                 if (process.env.DEBUG) {
                   console.log(`\nFile: ${file}`);
                   console.log(`\n\Title: ${title}`);
@@ -106,7 +106,7 @@ jobs:
                   console.log(`\n`);
                 }
 
-                // Create the issue
+                // Criar a issue
                 const issue = await github.rest.issues.create({
                   owner: owner,
                   repo: repo,
@@ -115,7 +115,7 @@ jobs:
                   labels: [label],
                 });
 
-                // Add comments
+                // Adicionar comentários
                 for (const comment of comments) {
                   await github.rest.issues.createComment({
                     owner: owner,
@@ -125,16 +125,16 @@ jobs:
                   });
                 }
 
-                console.log(`Created issue: ${title}, URL: ${issue.data.html_url} with ${comments.length} comments.`);
+                console.log(`Issue criada: ${title}, URL: ${issue.data.html_url} com ${comments.length} comentários.`);
               }
             };
 
-            // Load issues from both folders
+            // Carregar issues de ambas as pastas
             await createIssuesFromMarkdownFiles('.github/steps/1-step-issues/bug/', 'bug');
             await createIssuesFromMarkdownFiles('.github/steps/1-step-issues/enhancement/', 'enhancement');
 
   post_next_step_content:
-    name: Post next step content
+    name: Postar conteúdo do próximo passo
     needs: [find_exercise, check_step_work]
     runs-on: ubuntu-latest
     env:
@@ -144,28 +144,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get response templates
+      - name: Obter templates de resposta
         uses: actions/checkout@v4
         with:
-          repository: skills/exercise-toolkit
+          repository: dev-pods/exercise-toolkit
           path: exercise-toolkit
-          ref: v0.4.0
+          ref: v0.1.1
 
-      - name: Create comment - add step content
+      - name: Criar comentário - adicionar conteúdo do passo
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file "$STEP_2_FILE"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create comment - watching for progress
+      - name: Criar comentário - observando progresso
         run: |
           gh issue comment "$ISSUE_URL" \
             --body-file exercise-toolkit/markdown-templates/step-feedback/watching-for-progress.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Disable current workflow and enable next one
+      - name: Desabilitar workflow atual e habilitar o próximo
         run: |
           gh workflow disable "Step 1" || true
           gh workflow enable "Step 2" || true
